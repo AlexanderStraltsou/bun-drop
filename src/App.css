@@ -1,38 +1,222 @@
-.App {
+body{
+  background-color: rgb(255, 249, 240);
+}
+
+.card-image
+{
+  background-color: antiquewhite;
+}
+
+
+.items-container {
+  display: grid;
+  
+  grid-template-columns: repeat(3, 1fr);
   text-align: center;
+  gap: 20px;
+  margin-top: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.payment {
+  
+  text-align: center;
+  gap: 20px;
+  margin-top: 100px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.items-item {
+  background-color: rgb(250, 243, 233);
+  
+  height: 220px;
+  padding: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* .items-container:hover {
+  background-color: antiquewhite;
+  cursor: pointer;
+} */
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #2ea334;
+  border-color: #2ea334;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: bolder;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 7px;
+  transition: background-color 0.3s ease;
+  width:150px;
+  
+
+  
+}
+
+.button:hover {
+  background-color: #1dc547;
+  border-color: #1dc547;
+}
+
+.button:active {
+  background-color: #1fed53;
+  border-color: #1fed53;
+}
+
+.favorite-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: gold;
+  font-size: 20px;
+  position: relative;
+  left: 170px;
+  top: 40px;
+}
+
+.favorite-button:hover {
+  
+  color: rgb(252, 156, 0);
+}
+
+
+.favorite-button:active {
+  color: rgb(252, 101, 0);
+}
+
+
+
+.wrapper {
+  width: 100%; /* Set the width to occupy the entire available space */
+  max-width: 1200px; /* Set a maximum width for the wrapper */
+  margin: 0 auto; /* Center the wrapper horizontally */
+  padding: 20px; /* Add some padding for spacing */
+}
+
+h1{
+  font-size: 36px;
+  font-weight: bolder;
+  padding-top: 20px;
+}
+
+h3{
+  color:black;
+  text-decoration: none;
+  
+}
+
+h4{
+  color:black;
+  text-decoration: none;
+  
+}
+
+em{
+  color:black;
+  text-decoration: none;
+}
+
+.searchbar {
+  margin-top: 10px;
+  border-radius: 5px;
+  border: solid 1px;
+  padding: 5px 20px;
+  background-color: rgb(255, 249, 240);
+}
+
+a:link { 
+  text-decoration: none; 
+}
+
+
+li {
+  margin-right: 10px;
+  
+  cursor: pointer;
+}
+
+
+.nav-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  padding: 20px;
+  background-color: antiquewhite;
   color: white;
+  width: auto;
+  height: 60px;
+  
 }
 
-.App-link {
-  color: #61dafb;
+/* .flex-container {
+  display: flex;
+  align-items: right;
+  color:black;
+} */
+
+.logo-image {
+  width: 55px;
+  height: 55px;
+  padding: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.big-logo
+{
+  width: 300px;
+  height: 300px;
+}
+
+.remove-button
+{
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: rgb(255, 42, 0);
+  font-size: 16px;
+  float: right;
+  margin-left: 50px;
+  display: block;
+  
+  
+
+}
+
+.neworder-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: antiquewhite;
+  padding: 30px;
+  padding-bottom: 50px;
+  
+}
+
+.order{
+  
+  align-items: center;
+  
+  
+  padding-left: 40px;
+
+}
+
+.order-list
+{
+  /* position: absolute;
+  right: auto; */
+  /* 
+  /* text-align: right;
+   */ 
+  
+   /* align-items: right;
+   align-content: right; */
+   
+
+    padding-top: 15px;
+    padding-bottom: 25px;
+}
+
+.favorite{
+  padding-right: 80px;
 }
