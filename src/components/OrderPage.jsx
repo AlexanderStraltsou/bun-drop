@@ -35,17 +35,23 @@ function OrderPage() {
     
   }
 
+  
+
+
   function removeFromOrder(itemId) {
     const updatedOrderItems = orderItems.map((item) => {
       if (item.id === itemId) {
         if (item.quantity > 1) {
           return { ...item, quantity: item.quantity - 1 };
+        } else {
+          return null; // Remove the item from the order
         }
       }
       return item;
     });
-    setOrderItems(updatedOrderItems);
-    updateLocalStorage(updatedOrderItems);
+    const filteredOrderItems = updatedOrderItems.filter((item) => item !== null);
+    setOrderItems(filteredOrderItems);
+    updateLocalStorage(filteredOrderItems);
   }
 
 
@@ -68,16 +74,20 @@ function OrderPage() {
 
 
   return (
-    <div className="payment">
-      <h1>Your Order</h1>
+    <div>
+      <h1 className="payment">Your Order</h1>
+      <br />
+      <div className="orderpage">
       {orderItems.map((item) => (
-        <li key={item.id}>{item.name } x {item.quantity} pcs
-        <button type="submit" className='remove-button' onClick={() => removeFromOrder(item.id)}
+        <li  key={item.id}>{item.name } x {item.quantity} pcs
+        <button type="submit" className='r-button' onClick={() => removeFromOrder(item.id)}
         ><FontAwesomeIcon icon={faTrash} /></button>
     </li> 
     
+    
       ))}
-      <p>Total Price: {totalPrice} SEK </p>
+      </div>
+      <p className="payment">Total Price: {totalPrice} SEK </p>
 
 
 

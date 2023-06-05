@@ -99,10 +99,14 @@ function Menu() {
       prevItems.filter((item) => item.id !== itemId)
     );
 
+    
+
     const cart = getLocalStorage();
     const updatedCart = cart.filter((item) => item.id !== itemId);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   }
+
+  
  
 
   // function placeOrder() {

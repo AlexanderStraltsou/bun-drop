@@ -134,6 +134,7 @@ a:link {
 li {
   margin-right: 10px;
   
+  
   cursor: pointer;
 }
 
@@ -183,12 +184,36 @@ li {
 
 }
 
+.r-button
+{
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: rgb(255, 42, 0);
+  font-size: 16px;
+  margin-left: 50px;
+  float: right;
+  
+  
+  
+  
+  
+
+}
+
 .neworder-container {
   display: flex;
   justify-content: space-between;
   background-color: antiquewhite;
   padding: 30px;
   padding-bottom: 50px;
+  
+}
+
+.orderpage
+{
+  width: 300px;
+  margin:auto;
   
 }
 
