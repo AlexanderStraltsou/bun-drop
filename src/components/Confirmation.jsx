@@ -1,8 +1,13 @@
 import React from 'react';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 
+
 function Confirmation() {
+
+    const paymentInfo = JSON.parse(localStorage.getItem('paymentInfo'));
+    // const cart = localStorage.getItem("cart");
 
     const getRandomTime = () => {
         const min = 15; 
@@ -11,21 +16,51 @@ function Confirmation() {
       };
 
 
+
+
   return (
     <div>
-      <h1
+
+      
+      
+      <br />
+      <br />
+
+
+
+      {/* <h1
         style={{ fontSize: 55, textAlign: "center"}}
       >
         Confirmation!
-      </h1>
+      </h1> */}
+      
+      <h2 style={{ fontSize: 40, textAlign: "center"}} >Thank You For Your Order</h2>
+
       <div style={{textAlign: "center"}}>
       <FontAwesomeIcon icon={faCircleCheck} beat size="2xl" />
 </div >
-      <h2 style={{ fontSize: 40, textAlign: "center"}} >Thank You For Your Order</h2>
       
-      
+      <br />
       <h3 style={{textAlign: "center"}}>Your order will be delivered within the next {getRandomTime()} minutes. Please, keep your appartment windows open!</h3>
       
+      <div className='payment'>
+      {paymentInfo && (
+        <>
+          <h3>Delivery & Payment Information:</h3>
+          <br />
+          <p>Name: {paymentInfo.name}</p>
+          <p>Address: {paymentInfo.address}</p>
+          <p>House Number: {paymentInfo.houseNumber}</p>
+          <p>City: {paymentInfo.city}</p>
+          <p>Mobile Number: {paymentInfo.mobileNumber}</p>
+          <p>Payment Method: {paymentInfo.paymentMethod}</p>
+        </>
+      )}
+      </div>  
+
+        
+
+
       <div style={{textAlign: "center", margin: "5%"}}>
       <img 
         src={"https://www.drupal4u.org/sites/default/files/2022-03/Grayscale-and-Black%2520and-White-Google-Maps.jpg"}

@@ -18,6 +18,17 @@ function Payment() {
       return;
     }
 
+    const paymentInfo = {
+      name,
+      address,
+      houseNumber,
+      city,
+      mobileNumber,
+      paymentMethod
+    };
+  
+    localStorage.setItem('paymentInfo', JSON.stringify(paymentInfo));
+
   
     setName('');
     setAddress('');
@@ -101,12 +112,17 @@ function Payment() {
         <br />
 
         {/* <button className='button' type="submit"><Link to="/Confirmation">Place Order</Link></button> */}
-        <Link to="/Confirmation">
+        {/* <Link onClick={handleSubmit} to="/Confirmation">
         <div >
           <button className="button">Place Order</button>
           
+          
         </div>
-      </Link>
+      </Link> */}
+
+      <button className="button" type="submit" onClick={handleSubmit}>
+  <Link to="/Confirmation">Place Order</Link>
+    </button>
 
 
       </form>
