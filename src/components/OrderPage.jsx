@@ -5,11 +5,21 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 function OrderPage() {
   const [orderItems, setOrderItems] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+
 
   useEffect(() => {
     const cart = getLocalStorage();
     setOrderItems(cart);
   }, []);
+
+
+  useEffect(() => {
+    calculateTotalPrice();
+  }, [orderItems]);
+
+
 
   function getLocalStorage() {
     const cart = localStorage.getItem("cart");
@@ -25,16 +35,37 @@ function OrderPage() {
     
   }
 
-
   function removeFromOrder(itemId) {
-    const updatedOrderItems = orderItems.filter((item) => item.id !== itemId);
+    const updatedOrderItems = orderItems.map((item) => {
+      if (item.id === itemId) {
+        if (item.quantity > 1) {
+          return { ...item, quantity: item.quantity - 1 };
+        }
+      }
+      return item;
+    });
     setOrderItems(updatedOrderItems);
     updateLocalStorage(updatedOrderItems);
   }
 
+
+  // function removeFromOrder(itemId) {
+  //   const updatedOrderItems = orderItems.filter((item) => item.id !== itemId);
+  //   setOrderItems(updatedOrderItems);
+  //   updateLocalStorage(updatedOrderItems);
+  // }
+
   function updateLocalStorage(items) {
     localStorage.setItem("cart", JSON.stringify(items));
   }
+
+  function calculateTotalPrice() {
+    const totalPrice = orderItems.reduce((total, item) => {
+      return total + item.price * item.quantity;
+    }, 0);
+    setTotalPrice(totalPrice);
+  }
+
 
   return (
     <div className="payment">
@@ -43,28 +74,12 @@ function OrderPage() {
         <li key={item.id}>{item.name } x {item.quantity} pcs
         <button type="submit" className='remove-button' onClick={() => removeFromOrder(item.id)}
         ><FontAwesomeIcon icon={faTrash} /></button>
-    </li>
-        // <div key={item.id}>
-        //   <h3>{item.name}</h3>
-        //   <p>Price: {item.price}</p>
-        //   <p>Quantity: {item.quantity}</p>
-          // <button onClick={() => removeFromOrder(item.id)}>Remove</button>
-          
-        // </div>
+    </li> 
+    
       ))}
+      <p>Total Price: {totalPrice} SEK </p>
 
-{/* {selectedItems.length > 0 ? (
-            <ul className='order-list'>
-              {selectedItems.map((item) => (
-                <li key={item.id}>{item.name } x {item.quantity} pcs
-                <button type="submit" className='remove-button' onClick={() => removeFromOrder(item.id)}
-                ><FontAwesomeIcon icon={faTrash} /></button>
-            </li>
-              ))}
-            </ul>
-          ) : (
-            <p>No items added to the order.</p>
-          )} */}
+
 
 <Link to="/Payment">
         <div style={{textAlign: "center", margin: "5%"}}>
@@ -77,3 +92,27 @@ function OrderPage() {
 }
 
 export default OrderPage;
+
+
+
+/* {selectedItems.length > 0 ? (
+            <ul className='order-list'>
+              {selectedItems.map((item) => (
+                <li key={item.id}>{item.name } x {item.quantity} pcs
+                <button type="submit" className='remove-button' onClick={() => removeFromOrder(item.id)}
+                ><FontAwesomeIcon icon={faTrash} /></button>
+            </li>
+              ))}
+            </ul>
+          ) : (
+            <p>No items added to the order.</p>
+          )} */
+
+
+          // <div key={item.id}>
+        //   <h3>{item.name}</h3>
+        //   <p>Price: {item.price}</p>
+        //   <p>Quantity: {item.quantity}</p>
+          // <button onClick={() => removeFromOrder(item.id)}>Remove</button>
+          
+        // </div>

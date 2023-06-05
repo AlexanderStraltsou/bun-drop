@@ -69,9 +69,11 @@ function Payment() {
           <input type="text" value={mobileNumber} onChange={(e) => setMobileNumber(e.target.value)} />
         </label>
         <br />
-
+        <br />
         <label>
           Payment Method:
+          <br />
+          
           <div>
             <label>
               <input
@@ -80,6 +82,7 @@ function Payment() {
                 checked={paymentMethod === 'swish'}
                 onChange={(e) => setPaymentMethod(e.target.value)}
               />
+              
               Swish
             </label>
           </div>
@@ -97,7 +100,15 @@ function Payment() {
         </label>
         <br />
 
-        <button className='button' type="submit"><Link to="/Confirmation">Place Order</Link></button>
+        {/* <button className='button' type="submit"><Link to="/Confirmation">Place Order</Link></button> */}
+        <Link to="/Confirmation">
+        <div >
+          <button className="button">Place Order</button>
+          
+        </div>
+      </Link>
+
+
       </form>
     </div>
   );
