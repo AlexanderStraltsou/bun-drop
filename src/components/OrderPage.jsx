@@ -74,7 +74,18 @@ function OrderPage() {
 
 
   return (
+    
     <div>
+
+<Link to="/Menu">
+        <div style={{textAlign: "left", margin: "2%"}}>
+          <button className="button">Go Back</button>
+          
+        </div>
+      </Link>
+
+
+
       <h1 className="payment">Your Order</h1>
       <br />
       <div className="orderpage">

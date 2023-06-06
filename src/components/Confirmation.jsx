@@ -8,6 +8,10 @@ function Confirmation() {
 
     const paymentInfo = JSON.parse(localStorage.getItem('paymentInfo'));
     // const cart = localStorage.getItem("cart");
+    const cart = JSON.parse(localStorage.getItem('cart'));
+
+
+
 
     const getRandomTime = () => {
         const min = 15; 
@@ -38,11 +42,26 @@ function Confirmation() {
 
       <div style={{textAlign: "center"}}>
       <FontAwesomeIcon icon={faCircleCheck} beat size="2xl" />
-</div >
+
+      <br />
       
       <br />
       <h3 style={{textAlign: "center"}}>Your order will be delivered within the next {getRandomTime()} minutes. Please, keep your appartment windows open!</h3>
       
+      <div>
+      <br />
+                <h3>Your Order:</h3>
+                    {cart.map((item) => (
+                        <p key={item.id}>
+                            {item.name} x {item.quantity} pcs
+                        </p>
+                    ))}
+                
+            </div>
+</div >
+
+
+
       <div className='payment'>
       {paymentInfo && (
         <>

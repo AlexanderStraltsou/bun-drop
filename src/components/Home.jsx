@@ -10,16 +10,17 @@ function Home() {
       <img src={img} 
       alt=""
       className="big-logo"/>
-
-    <h2>Welcome To The Best Burger Restaurant In The City</h2>
-    <p>Please click on the menu to get your meal wihin the next 30 minutes</p>
-      </div>
       <Link to="/Menu">
-        <div style={{textAlign: "center", margin: "5%"}}>
+        <div style={{textAlign: "center", margin: "2%"}}>
           <button className="button">Menu</button>
           
         </div>
       </Link>
+
+    <h2>Welcome To The Best Burger Restaurant In The City</h2>
+    <p>Please click on the menu to get your meal wihin the next 30 minutes</p>
+      </div>
+      
     </div>
   );
 }
