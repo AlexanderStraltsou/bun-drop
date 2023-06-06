@@ -8,15 +8,20 @@ function Payment() {
   const [city, setCity] = useState('');
   const [mobileNumber, setMobileNumber] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [addressConfirmed, setAddressConfirmed] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
    
-    if (!name || !address || !houseNumber || !city || !mobileNumber || !paymentMethod) {
-      alert('Please fill in all the fields.');
+    if (name.length < 2 || address.length < 2 || isNaN(houseNumber) || houseNumber.length <1 || city.length < 1 || mobileNumber.length < 2 || isNaN(mobileNumber) || !paymentMethod)
+    {
+      setErrorMessage('Please fill in all the fields correctly.');
       return;
     }
+
+    setErrorMessage('');
 
     const paymentInfo = {
       name,
@@ -36,40 +41,53 @@ function Payment() {
     setCity('');
     setMobileNumber('');
     setPaymentMethod('');
+    setAddressConfirmed(true);
   };
 
   return (
     <div className='payment'>
+      
+
+
       <h2>Please fill in your address and choose a payment method:</h2>
+      {errorMessage && (
+        <p style={{ color: 'red' }}>{errorMessage}</p>
+        
+      )}
+      
 
       <form onSubmit={handleSubmit}>
         <label>
-        <br />
+        
         <br />
           Name:
           <br />
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+          <input type="text" value={name} onChange={(e) => setName(e.target.value)} className={name.length < 2 ? 'error' : ''} />
+        
         </label>
         <br />
 
         <label>
           Address:
           <br />
-          <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
+          <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} className={address.length < 2 ? 'error' : ''} />
+        
         </label>
         <br />
 
         <label>
           House Number:
           <br />
-          <input type="text" value={houseNumber} onChange={(e) => setHouseNumber(e.target.value)} />
+          <input type="text" value={houseNumber} onChange={(e) => setHouseNumber(e.target.value)} className={isNaN(houseNumber) || houseNumber.length < 1 ? 'error' : ''} />
+        
         </label>
         <br />
 
         <label>
           City:
           <br />
-          <input type="text" value={city} onChange={(e) => setCity(e.target.value)} />
+          <input type="text" value={city} onChange={(e) => setCity(e.target.value)} className={city.length < 1 ? 'error' : ''} />
+      
         </label>
         <br />
 
@@ -77,7 +95,8 @@ function Payment() {
         
           Mobile Number:
           <br />
-          <input type="text" value={mobileNumber} onChange={(e) => setMobileNumber(e.target.value)} />
+          <input type="text" value={mobileNumber} onChange={(e) => setMobileNumber(e.target.value)} className={mobileNumber.length < 2 || isNaN(mobileNumber) ? 'error' : ''} />
+        
         </label>
         <br />
         <br />
@@ -89,8 +108,8 @@ function Payment() {
             <label>
               <input
                 type="radio"
-                value="swish"
-                checked={paymentMethod === 'swish'}
+                value="Swish"
+                checked={paymentMethod === 'Swish'}
                 onChange={(e) => setPaymentMethod(e.target.value)}
               />
               
@@ -101,8 +120,8 @@ function Payment() {
             <label>
               <input
                 type="radio"
-                value="card"
-                checked={paymentMethod === 'card'}
+                value="Card"
+                checked={paymentMethod === 'Card'}
                 onChange={(e) => setPaymentMethod(e.target.value)}
               />
               Card
@@ -120,12 +139,27 @@ function Payment() {
         </div>
       </Link> */}
 
-      <button className="button" type="submit" onClick={handleSubmit}>
+      {/* <button className="button" type="submit" onClick={handleSubmit}>
   <Link to="/Confirmation">Place Order</Link>
-    </button>
+    </button> */}
+    
+    
+        <div >
+          <button className="button" onClick={handleSubmit} >Confirm Address</button>
+          
+        </div>
+        <br />
 
+        {addressConfirmed && <p style={{ color: 'green' }}>Your address is confirmed! Click "Place Order" to continue!</p>}
+
+        <Link to="/Confirmation" >
+        <button className="button" disabled={!addressConfirmed} >Place Order</button>
+
+      </Link>
 
       </form>
+
+<br />
     </div>
   );
 }

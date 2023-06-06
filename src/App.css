@@ -177,6 +177,10 @@ li {
   height: 375px;
 }
 
+.error {
+  border: 1px solid red;
+}
+
 .remove-button
 {
   border: none;
