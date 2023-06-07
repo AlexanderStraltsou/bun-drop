@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
@@ -11,7 +11,7 @@ function Confirmation() {
     const cart = JSON.parse(localStorage.getItem('cart'));
 
 
-
+// useEffect -> localStorage.removeItem("cart");
 
     const getRandomTime = () => {
         const min = 15; 
@@ -19,7 +19,9 @@ function Confirmation() {
         return Math.floor(Math.random() * (max - min + 1)) + min;
       };
 
-
+      useEffect(() => {
+        localStorage.removeItem('cart'); 
+      }, []); 
 
 
   return (

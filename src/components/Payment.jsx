@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 function Payment() {
   const [name, setName] = useState('');
@@ -10,6 +11,7 @@ function Payment() {
   const [paymentMethod, setPaymentMethod] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [addressConfirmed, setAddressConfirmed] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -56,7 +58,7 @@ function Payment() {
       )}
       
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} >
         <label>
         
         <br />
@@ -139,9 +141,7 @@ function Payment() {
         </div>
       </Link> */}
 
-      {/* <button className="button" type="submit" onClick={handleSubmit}>
-  <Link to="/Confirmation">Place Order</Link>
-    </button> */}
+      
     
     
         <div >
@@ -154,8 +154,17 @@ function Payment() {
 
         <Link to="/Confirmation" >
         <button className="button" disabled={!addressConfirmed} >Place Order</button>
+        
+        
+
 
       </Link>
+
+      {/* <button className="button" type="submit" onClick={() => {
+            handleSubmit();
+            navigate('/Confirmation');
+          }}> Place Order
+    </button> */}
 
       </form>
 

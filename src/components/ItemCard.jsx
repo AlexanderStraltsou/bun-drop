@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 // import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 function ItemCard({ name, size, id, image, price, addToFavorites, addToOrder }) {
+
+  const [isSelected, setIsSelected] = useState(false);
 
     const handleAddToFavorites = () => {
         addToFavorites(id);
@@ -12,11 +14,15 @@ function ItemCard({ name, size, id, image, price, addToFavorites, addToOrder }) 
 
       const handleAddToCart = () => {
         addToOrder(id);
+        setIsSelected(true);
+        setTimeout(() => {
+          setIsSelected(false);
+        }, 3000);
       };
 
   return (
     // <Link to={`/items/${id}`}>
-        <div>
+        <div className={`item-card ${isSelected ? 'selected' : ''}`}>
             <button onClick={handleAddToFavorites} className="favorite-button">
         <FontAwesomeIcon icon={faStar} />
       </button>

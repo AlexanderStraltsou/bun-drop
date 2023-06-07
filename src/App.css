@@ -7,6 +7,10 @@ body{
   background-color: antiquewhite;
 }
 
+.item-card.selected {
+  border: 5px solid green;
+}
+
 
 .items-container {
   display: grid;
