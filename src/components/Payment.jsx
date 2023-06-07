@@ -153,7 +153,7 @@ function Payment() {
         {addressConfirmed && <p style={{ color: 'green' }}>Your address is confirmed! Click "Place Order" to continue!</p>}
 
         <Link to="/Confirmation" >
-        <button className="button" disabled={!addressConfirmed} >Place Order</button>
+        <button className={`button ${!addressConfirmed ? 'disabled' : ''}`} disabled={!addressConfirmed} >Place Order</button>
         
         
 

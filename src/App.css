@@ -56,10 +56,20 @@ body{
   border-radius: 7px;
   transition: background-color 0.3s ease;
   width:150px;
+
+  &.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+    border: none;
+  }
   
 
   
 }
+
+
+
 
 .button:hover {
   background-color: #1dc547;
