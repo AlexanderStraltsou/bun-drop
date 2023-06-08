@@ -29,6 +29,7 @@ body{
   text-align: center;
   gap: 20px;
   margin-top: 50px;
+  align-items: center;
 }
 
 .items-item {
@@ -36,6 +37,14 @@ body{
   
   height: 220px;
   padding: 10px;
+}
+
+.payment-icon
+{
+  width: 30px;
+  height: 20px;
+  
+
 }
 
 /* .items-container:hover {
@@ -233,6 +242,18 @@ li {
   background-color: antiquewhite;
   padding: 30px;
   padding-bottom: 50px;
+  
+}
+
+
+.payment-options {
+  
+  display: flex;
+  align-items: center;
+  
+  
+  
+  
   
 }
 

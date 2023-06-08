@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import swishIcon from '../bundropimages/Swish_(payment)-Logo.wine.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
 
 
 function Payment() {
@@ -11,7 +14,7 @@ function Payment() {
   const [paymentMethod, setPaymentMethod] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [addressConfirmed, setAddressConfirmed] = useState(false);
-  const navigate = useNavigate();
+ 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -106,9 +109,13 @@ function Payment() {
           Payment Method:
           <br />
           
-          <div>
+          <div  >
+          <img className='payment-icon' src={swishIcon} alt="Swish Icon" />
+          {/* <FontAwesomeIcon icon={faMoneyBillAlt} /> */}
             <label>
+            
               <input
+              
                 type="radio"
                 value="Swish"
                 checked={paymentMethod === 'Swish'}
@@ -119,6 +126,7 @@ function Payment() {
             </label>
           </div>
           <div>
+          <FontAwesomeIcon icon={faCreditCard} />
             <label>
               <input
                 type="radio"
@@ -145,7 +153,7 @@ function Payment() {
     
     
         <div >
-          <button className="button" onClick={handleSubmit} >Confirm Address</button>
+          <button className="button" onClick={handleSubmit} >Confirm & Save</button>
           
         </div>
         <br />
