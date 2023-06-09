@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import { SelectedItemsContext } from "../SelectedItemsContext";
+
 
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
@@ -13,10 +13,6 @@ function Menu() {
   const [filteredItems, setFilteredItems] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
-//   const { selectedItems, setSelectedItems } = useContext(SelectedItemsContext);
-
-
-  
 
 
 
@@ -150,10 +146,7 @@ function Menu() {
           
           />
           
-          
-        
-      
-      {/* <button onClick={placeOrder}> */}
+    
 
       <Link to="/OrderPage">
         <div >
@@ -162,11 +155,7 @@ function Menu() {
         </div>
       </Link>
 
-      {/* <button className="button">
-        <Link to="/OrderPage">Review Cart</Link>
-      </button> */}
-
-
+    
         </div>
         
       <div className="favorite">
@@ -202,21 +191,9 @@ function Menu() {
         />
         ))}
 
-
-
-
-      
     </div>
 
-    
-
-      
-    
-
-
     </div>
-
- 
 
   );
 }

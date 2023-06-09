@@ -29,9 +29,6 @@ function OrderPage() {
     } else {
       return JSON.parse(cart);
     }
-
-    
-
     
   }
 
@@ -44,7 +41,7 @@ function OrderPage() {
         if (item.quantity > 1) {
           return { ...item, quantity: item.quantity - 1 };
         } else {
-          return null; // Remove the item from the order
+          return null; 
         }
       }
       return item;
@@ -55,10 +52,9 @@ function OrderPage() {
   }
 
 
-
   function setQuantity(itemId, newQuantity) {
     if (newQuantity < 1) {
-      removeFromOrder(itemId); // Remove the item from the order
+      removeFromOrder(itemId); 
     } else {
       const updatedOrderItems = orderItems.map((item) => {
         if (item.id === itemId) {
@@ -71,11 +67,6 @@ function OrderPage() {
     }
   }
 
-  // function removeFromOrder(itemId) {
-  //   const updatedOrderItems = orderItems.filter((item) => item.id !== itemId);
-  //   setOrderItems(updatedOrderItems);
-  //   updateLocalStorage(updatedOrderItems);
-  // }
 
   function updateLocalStorage(items) {
     localStorage.setItem("cart", JSON.stringify(items));
@@ -99,7 +90,6 @@ function OrderPage() {
           
         </div>
       </Link>
-
 
 
       <h1 className="payment">Your Order</h1>
@@ -132,26 +122,3 @@ function OrderPage() {
 
 export default OrderPage;
 
-
-
-/* {selectedItems.length > 0 ? (
-            <ul className='order-list'>
-              {selectedItems.map((item) => (
-                <li key={item.id}>{item.name } x {item.quantity} pcs
-                <button type="submit" className='remove-button' onClick={() => removeFromOrder(item.id)}
-                ><FontAwesomeIcon icon={faTrash} /></button>
-            </li>
-              ))}
-            </ul>
-          ) : (
-            <p>No items added to the order.</p>
-          )} */
-
-
-          // <div key={item.id}>
-        //   <h3>{item.name}</h3>
-        //   <p>Price: {item.price}</p>
-        //   <p>Quantity: {item.quantity}</p>
-          // <button onClick={() => removeFromOrder(item.id)}>Remove</button>
-          
-        // </div>

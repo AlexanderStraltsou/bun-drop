@@ -5,7 +5,7 @@ import img from '../bundropimages/logo-black.png';
 function Home() {
   return (
     <div>
-      {/* <h1 style={headerStyle}>Thanks For Coming Back!</h1> */}
+      
       <div style={{textAlign: "center", margin: "5%"}} >
       <img src={img} 
       alt=""
@@ -25,10 +25,5 @@ function Home() {
   );
 }
 
-// const headerStyle = {
-//   fontSize: 50,
-//   color: "red",
-//   textAlign: "center",
-// };
 
 export default Home;

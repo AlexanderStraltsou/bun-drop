@@ -52,14 +52,10 @@ body{
 {
   width: 30px;
   height: 12px;
-  
 
 }
 
-/* .items-container:hover {
-  background-color: antiquewhite;
-  cursor: pointer;
-} */
+
 
 .button {
   display: inline-block;
@@ -81,8 +77,6 @@ body{
     opacity: 0.6;
     border: none;
   }
-  
-
   
 }
 
@@ -123,10 +117,10 @@ body{
 
 
 .wrapper {
-  width: 100%; /* Set the width to occupy the entire available space */
-  max-width: 1200px; /* Set a maximum width for the wrapper */
-  margin: 0 auto; /* Center the wrapper horizontally */
-  padding: 20px; /* Add some padding for spacing */
+  width: 100%; 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 20px; 
 }
 
 h1{
@@ -190,11 +184,7 @@ li {
   
 }
 
-/* .flex-container {
-  display: flex;
-  align-items: right;
-  color:black;
-} */
+
 
 .logo-image {
   width: 55px;
@@ -257,11 +247,7 @@ li {
   
   display: flex;
   align-items: center;
-  
-  
-  
-  
-  
+ 
 }
 
 .orderpage
@@ -282,16 +268,7 @@ li {
 
 .order-list
 {
-  /* position: absolute;
-  right: auto; */
-  /* 
-  /* text-align: right;
-   */ 
-  
-   /* align-items: right;
-   align-content: right; */
-   
-
+ 
     padding-top: 15px;
     padding-bottom: 25px;
 }

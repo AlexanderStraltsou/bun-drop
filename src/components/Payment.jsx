@@ -127,7 +127,7 @@ function Payment() {
           
           <div  >
           <img className='payment-icon' src={swishIcon} alt="Swish Icon" />
-          {/* <FontAwesomeIcon icon={faMoneyBillAlt} /> */}
+          
             <label>
             
               <input
@@ -148,7 +148,7 @@ function Payment() {
           <div>
             
           <img className='payment-card' src={cardIcon} alt="Card Icon" />
-          {/* <FontAwesomeIcon icon={faCreditCard} /> */}
+          
             <label>
               <input
                 type="radio"
@@ -189,18 +189,6 @@ function Payment() {
         
         <br />
 
-        {/* <button className='button' type="submit"><Link to="/Confirmation">Place Order</Link></button> */}
-        {/* <Link onClick={handleSubmit} to="/Confirmation">
-        <div >
-          <button className="button">Place Order</button>
-          
-          
-        </div>
-      </Link> */}
-
-      
-    
-    
         <div >
           <button className="button" onClick={handleSubmit} >Confirm & Save</button>
           
@@ -212,17 +200,8 @@ function Payment() {
 
         <Link to="/Confirmation" >
         <button className={`button ${!addressConfirmed ? 'disabled' : ''}`} disabled={!addressConfirmed} >Place Order</button>
-        
-        
-
-
+      
       </Link>
-
-      {/* <button className="button" type="submit" onClick={() => {
-            handleSubmit();
-            navigate('/Confirmation');
-          }}> Place Order
-    </button> */}
 
       </form>
 )}

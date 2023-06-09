@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 
@@ -7,11 +6,7 @@ import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 function Confirmation() {
 
     const paymentInfo = JSON.parse(localStorage.getItem('paymentInfo'));
-    // const cart = localStorage.getItem("cart");
     const cart = JSON.parse(localStorage.getItem('cart'));
-
-
-// useEffect -> localStorage.removeItem("cart");
 
     const getRandomTime = () => {
         const min = 15; 
@@ -26,20 +21,10 @@ function Confirmation() {
 
   return (
     <div>
-
-      
-      
+    
       <br />
       <br />
-
-
-
-      {/* <h1
-        style={{ fontSize: 55, textAlign: "center"}}
-      >
-        Confirmation!
-      </h1> */}
-      
+ 
       <h2 style={{ fontSize: 40, textAlign: "center"}} >Thank You For Your Order</h2>
 
       <div style={{textAlign: "center"}}>
@@ -48,7 +33,7 @@ function Confirmation() {
       <br />
       
       <br />
-      <h3 style={{textAlign: "center"}}>Your order will be delivered within the next {getRandomTime()} minutes. Please, keep your appartment windows open!</h3>
+      <h3 style={{textAlign: "center"}}>Your order will be delivered within the next {getRandomTime()} minutes. Please, keep your apartment windows open!</h3>
       
       <div>
       <br />

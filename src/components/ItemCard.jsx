@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-// import { Link } from "react-router-dom";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
@@ -21,7 +21,7 @@ function ItemCard({ name, size, id, image, price, addToFavorites, addToOrder }) 
       };
 
   return (
-    // <Link to={`/items/${id}`}>
+    
         <div className={`item-card ${isSelected ? 'selected' : ''}`}>
             <button onClick={handleAddToFavorites} className="favorite-button">
         <FontAwesomeIcon icon={faStar} />
@@ -49,7 +49,7 @@ function ItemCard({ name, size, id, image, price, addToFavorites, addToOrder }) 
       </div>
         </div>
         
-    // </Link>
+   
   );
 }
 
