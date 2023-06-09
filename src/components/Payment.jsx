@@ -14,6 +14,9 @@ function Payment() {
   const [paymentMethod, setPaymentMethod] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [addressConfirmed, setAddressConfirmed] = useState(false);
+  const [cardNumber, setCardNumber] = useState('');
+  const [expiryDate, setExpiryDate] = useState('');
+  const [cvv, setCVV] = useState('');
  
 
   const handleSubmit = (e) => {
@@ -46,6 +49,9 @@ function Payment() {
     setCity('');
     setMobileNumber('');
     setPaymentMethod('');
+    setCVV('');
+    setCardNumber('');
+    setExpiryDate('');
     setAddressConfirmed(true);
   };
 
@@ -60,7 +66,7 @@ function Payment() {
         
       )}
       
-
+      {!addressConfirmed && (
       <form onSubmit={handleSubmit} >
         <label>
         
@@ -124,6 +130,10 @@ function Payment() {
               
               Swish
             </label>
+            <br />
+            {paymentMethod === 'Swish' && (
+      <img className='swish-qr' src="https://www.hjarnfonden.se/uploads/2022/10/SwishQR_1x1.png" alt="Swish QR Code" />
+    )}
           </div>
           <div>
           <FontAwesomeIcon icon={faCreditCard} />
@@ -136,8 +146,31 @@ function Payment() {
               />
               Card
             </label>
+            
           </div>
+          {paymentMethod === 'Card' && (
+      <div>
+        <label>
+          Card Number:
+          <br />
+          <input type="text" value={cardNumber} onChange={(e) => setCardNumber(e.target.value)} />
         </label>
+        <br />
+        <label>
+          Expiry Date:
+          <br />
+          <input type="text" value={expiryDate} onChange={(e) => setExpiryDate(e.target.value)} />
+        </label>
+        <br />
+        <label>
+          CVV:
+          <br />
+          <input type="text" value={cvv} onChange={(e) => setCVV(e.target.value)} />
+        </label>
+      </div>
+    )}
+        </label>
+        
         <br />
 
         {/* <button className='button' type="submit"><Link to="/Confirmation">Place Order</Link></button> */}
@@ -175,6 +208,19 @@ function Payment() {
     </button> */}
 
       </form>
+)}
+
+{addressConfirmed && (
+      <div>
+        <p style={{ color: 'green' }}>Your address is confirmed! Click "Place Order" to continue!</p>
+        <Link to="/Confirmation">
+          <button className={`button ${!addressConfirmed ? 'disabled' : ''}`} disabled={!addressConfirmed}>
+            Place Order
+          </button>
+        </Link>
+      </div>
+    )}
+
 
 <br />
     </div>

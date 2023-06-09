@@ -1,5 +1,5 @@
 body{
-  background-color: rgb(255, 249, 240);
+  background-color: #fff9f0;
 }
 
 .card-image
@@ -200,6 +200,12 @@ li {
   height: 375px;
 }
 
+.swish-qr {
+  width: 150px;
+  height: 150px;
+  padding: 15px;
+}
+
 .error {
   border: 1px solid red;
 }
@@ -259,7 +265,7 @@ li {
 
 .orderpage
 {
-  width: 300px;
+  width: 350px;
   margin:auto;
   
 }
@@ -291,4 +297,23 @@ li {
 
 .favorite{
   padding-right: 80px;
+}
+
+
+.quantity-button {
+  
+  background-color: #fff9f0;
+  border: none;
+  
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.quantity-button:hover {
+  background-color: #fff9f0;
+}
+
+.quantity-button:focus {
+  outline: none;
 }

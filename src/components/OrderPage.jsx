@@ -55,6 +55,22 @@ function OrderPage() {
   }
 
 
+
+  function setQuantity(itemId, newQuantity) {
+    if (newQuantity < 1) {
+      removeFromOrder(itemId); // Remove the item from the order
+    } else {
+      const updatedOrderItems = orderItems.map((item) => {
+        if (item.id === itemId) {
+          return { ...item, quantity: newQuantity };
+        }
+        return item;
+      });
+      setOrderItems(updatedOrderItems);
+      updateLocalStorage(updatedOrderItems);
+    }
+  }
+
   // function removeFromOrder(itemId) {
   //   const updatedOrderItems = orderItems.filter((item) => item.id !== itemId);
   //   setOrderItems(updatedOrderItems);
@@ -93,6 +109,8 @@ function OrderPage() {
         <li  key={item.id}>{item.name } x {item.quantity} pcs
         <button type="submit" className='r-button' onClick={() => removeFromOrder(item.id)}
         ><FontAwesomeIcon icon={faTrash} /></button>
+        <button type="button" className='quantity-button' onClick={() => setQuantity(item.id, item.quantity - 1)}>-</button>
+            <button type="button" className='quantity-button' onClick={() => setQuantity(item.id, item.quantity + 1)}>+</button>
     </li> 
     
     
