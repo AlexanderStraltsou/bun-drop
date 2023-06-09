@@ -41,8 +41,17 @@ body{
 
 .payment-icon
 {
+  padding-top: 5px;
   width: 30px;
   height: 20px;
+  
+
+}
+
+.payment-card
+{
+  width: 30px;
+  height: 12px;
   
 
 }
@@ -124,6 +133,7 @@ h1{
   font-size: 36px;
   font-weight: bolder;
   padding-top: 20px;
+  
 }
 
 h3{
@@ -164,8 +174,6 @@ a:visited
 
 li {
   margin-right: 10px;
-  
-  
   cursor: pointer;
 }
 
@@ -220,8 +228,6 @@ li {
   float: right;
   margin-left: 50px;
   display: block;
-  
-  
 
 }
 
@@ -234,11 +240,6 @@ li {
   font-size: 16px;
   margin-left: 50px;
   float: right;
-  
-  
-  
-  
-  
 
 }
 

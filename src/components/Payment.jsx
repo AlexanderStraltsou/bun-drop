@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import swishIcon from '../bundropimages/Swish_(payment)-Logo.wine.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
+import cardIcon from '../bundropimages/png-clipart-visa-and-master-cards-mastercard-money-foothills-florist-business-visa-visa-mastercard-text-service.png';
+
 
 
 function Payment() {
@@ -23,7 +23,14 @@ function Payment() {
     e.preventDefault();
 
    
-    if (name.length < 2 || address.length < 2 || isNaN(houseNumber) || houseNumber.length <1 || city.length < 1 || mobileNumber.length < 2 || isNaN(mobileNumber) || !paymentMethod)
+    if (name.length < 2 || address.length < 2 || isNaN(houseNumber) || houseNumber.length <1 || city.length < 1 || mobileNumber.length < 2 || isNaN(mobileNumber) || !paymentMethod || (paymentMethod === 'Card' &&
+    (cardNumber.length < 1 ||
+      expiryDate.length < 1 ||
+      cvv.length < 3 ||
+      isNaN(cardNumber) ||
+      isNaN(expiryDate) ||
+      isNaN(cvv)))
+) 
     {
       setErrorMessage('Please fill in all the fields correctly.');
       return;
@@ -59,8 +66,11 @@ function Payment() {
     <div className='payment'>
       
 
-
+      {!addressConfirmed && (
       <h2>Please fill in your address and choose a payment method:</h2>
+    )}
+      
+      
       {errorMessage && (
         <p style={{ color: 'red' }}>{errorMessage}</p>
         
@@ -136,7 +146,9 @@ function Payment() {
     )}
           </div>
           <div>
-          <FontAwesomeIcon icon={faCreditCard} />
+            
+          <img className='payment-card' src={cardIcon} alt="Card Icon" />
+          {/* <FontAwesomeIcon icon={faCreditCard} /> */}
             <label>
               <input
                 type="radio"
@@ -148,26 +160,30 @@ function Payment() {
             </label>
             
           </div>
+          <br />
           {paymentMethod === 'Card' && (
       <div>
         <label>
+          <br />
           Card Number:
           <br />
-          <input type="text" value={cardNumber} onChange={(e) => setCardNumber(e.target.value)} />
+          <input type="text" value={cardNumber} onChange={(e) => setCardNumber(e.target.value)} className={cardNumber.length < 1 || isNaN(cardNumber) ? 'error' : ''}/>
         </label>
         <br />
         <label>
-          Expiry Date:
+          Expiry Year:
           <br />
-          <input type="text" value={expiryDate} onChange={(e) => setExpiryDate(e.target.value)} />
+          <input type="text" value={expiryDate} onChange={(e) => setExpiryDate(e.target.value)} className={expiryDate.length < 1 || isNaN(expiryDate) ? 'error' : ''}/>
         </label>
         <br />
         <label>
           CVV:
           <br />
-          <input type="text" value={cvv} onChange={(e) => setCVV(e.target.value)} />
+          <input type="text" value={cvv} onChange={(e) => setCVV(e.target.value)} className={cvv.length < 3 || isNaN(cvv) ? 'error' : ''} />
         </label>
+        
       </div>
+      
     )}
         </label>
         
@@ -190,8 +206,9 @@ function Payment() {
           
         </div>
         <br />
+        
 
-        {addressConfirmed && <p style={{ color: 'green' }}>Your address is confirmed! Click "Place Order" to continue!</p>}
+        {addressConfirmed && <p style={{ color: 'green' }}>Your delivery address and payment info is confirmed! Click "Place Order" to continue!</p>}
 
         <Link to="/Confirmation" >
         <button className={`button ${!addressConfirmed ? 'disabled' : ''}`} disabled={!addressConfirmed} >Place Order</button>
@@ -212,7 +229,10 @@ function Payment() {
 
 {addressConfirmed && (
       <div>
-        <p style={{ color: 'green' }}>Your address is confirmed! Click "Place Order" to continue!</p>
+        <br />
+        <br />
+        <br />
+        <p style={{ color: 'green' }}>Your delivery address and payment info are confirmed & saved! Click "Place Order" to continue!</p>
         <Link to="/Confirmation">
           <button className={`button ${!addressConfirmed ? 'disabled' : ''}`} disabled={!addressConfirmed}>
             Place Order
